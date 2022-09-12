@@ -1,9 +1,6 @@
 name: ci-tests
 
-on:
-  pull_request:
-    branches:
-      - 'test'
+on: [push]
 
 env:
   AWS_DEFAULT_REGION: 'eu-west-1'
