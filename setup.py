@@ -21,5 +21,5 @@ setup(
     name="testprojlib",
     packages=['project', 'project.utils'],
     url='https://github.com/maksim-dzhigil/setup_testing',
-    install_requires = requirements
+    install_requires=requirements
 )
