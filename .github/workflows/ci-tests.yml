@@ -3,7 +3,7 @@ name: ci-tests
 on:
   pull_request:
     branches:
-      - 'dev'
+      - 'test'
 
 env:
   AWS_DEFAULT_REGION: 'eu-west-1'
