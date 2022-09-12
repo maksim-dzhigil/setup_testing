@@ -27,4 +27,5 @@ jobs:
         run: pipenv install pytest
 
       - name: Run unit tests
-        run: pipenv run pytest tests/
+        working-directory: "tests/"
+        run: pipenv run pytest
