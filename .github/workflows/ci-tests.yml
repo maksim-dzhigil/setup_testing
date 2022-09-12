@@ -1,9 +1,6 @@
 name: ci-tests
 
-on:
-  pull_request:
-    branches:
-      - 'test'
+on: [push]
 
 env:
   AWS_DEFAULT_REGION: 'eu-west-1'
@@ -20,9 +17,8 @@ jobs:
         with:
           python-version: 3.9
 
-      - name: Install dependencies
-        run: python setup.py
+      - name: Install pytest
+        run: pip install pytest
 
-      - name: Run Unit tests
-        working-directory: "tests"
-        run: pipenv run pytest tests/
+      - name: Run unit tests
+        run: pytest tests/*
