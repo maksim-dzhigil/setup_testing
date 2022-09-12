@@ -1,4 +1,5 @@
-from distutils.core import setup
+# from distutils.core import setup
+from setuptools import setup
 import io
 import os
 
@@ -14,11 +15,12 @@ def find_requirements(*file_path):
     requirements = read(*file_path).split("\n")
     return [req for req in requirements if req]
 
+
 requirements = find_requirements("requirements.txt")
 
 setup(
     name="testprojlib",
     packages=['project', 'project.utils'],
     url='https://github.com/maksim-dzhigil/setup_testing',
-    install_requires = requirements
+    install_requires=requirements
 )
