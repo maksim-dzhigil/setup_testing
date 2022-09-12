@@ -21,7 +21,7 @@ jobs:
         run: pip install pytest
 
       - name: Install requirements
-        run: setup.py install
+        run: python setup.py
 
       - name: Run unit tests
         run: pytest tests/*
