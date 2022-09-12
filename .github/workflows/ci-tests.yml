@@ -21,8 +21,7 @@ jobs:
           python-version: 3.9
 
       - name: Install dependencies
-        run: python setup.py
+        run: pip install pipenv
 
       - name: Run Unit tests
-        working-directory: "tests"
         run: pipenv run pytest tests/
