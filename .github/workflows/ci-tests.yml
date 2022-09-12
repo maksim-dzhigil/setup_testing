@@ -19,5 +19,9 @@ jobs:
       - name: Test requirements installation
         run: python setup.py install
 
+      - name: Prepare test data
+        run: |
+          unzip acdc_for_test.7z
+
       - name: Run unit tests
         run: pytest tests/*.py
