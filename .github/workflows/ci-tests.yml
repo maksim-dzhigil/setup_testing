@@ -34,8 +34,8 @@ jobs:
       - name: Prepare test data
         run: 7z x tests/data_for_test/acdc_for_test.7z
 
+      - uses: actions/setup-python@v3
       - name: Run unit tests
-        uses: actions/setup-python@v3
         run: |
           pwd
           pytest tests/*.py
