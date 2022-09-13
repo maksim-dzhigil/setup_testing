@@ -36,4 +36,6 @@ jobs:
 
       - name: Run unit tests
         working-directory: tests
-        run: pytest /*.py
+        run: |
+          pwd
+          pytest /*.py
