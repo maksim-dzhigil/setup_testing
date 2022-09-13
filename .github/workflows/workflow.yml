@@ -19,14 +19,17 @@ jobs:
       run: pip install pytest
 
     - name: Test requirements installation
+      working-directory: setup_testing
       run: |
         pwd
         python setup.py install
 
     - name: Prepare test data
+      working-directory: setup_testing
       run: 7z x tests/data_for_test/acdc_for_test.7z
 
     - name: Run unit tests
+      working-directory: setup_testing
       run: pytest tests/*.py
 
     - uses: actions/checkout@master
