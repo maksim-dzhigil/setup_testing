@@ -20,8 +20,16 @@ jobs:
         run: python setup.py install
 
       - name: Prepare test data
-        run: |
-          7z x tests/data_for_test/acdc_for_test.7z
+        run: 7z x tests/data_for_test/acdc_for_test.7z
 
       - name: Run unit tests
         run: pytest tests/*.py
+
+      - uses: actions/checkout@master
+      - uses: codecov/codecov-action@v3
+        with:
+          files: ./coverage1.xml,./coverage2.xml # optional
+          flags: unittests # optional
+          name: codecov-umbrella # optional
+          fail_ci_if_error: true # optional (default = false)
+          verbose: true # optional (default = false)
