@@ -5,19 +5,7 @@ on:
 
 jobs:
   test:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v3
-#      - name: Set up Python 3.9
-#        uses: actions/setup-python@v3
-#        with:
-#          python-version: 3.9
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-#        os: [ ubuntu-latest, macos-latest, windows-latest ]
-         os: [windows-latest]
-
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python 3.9
@@ -31,9 +19,5 @@ jobs:
       - name: Test requirements installation
         run: python setup.py install
 
-      - name: Prepare test data
-        run: 7z x tests/data_for_test/acdc_for_test.7z
-
       - name: Run unit tests
-        working-directory: tests
-        run: pytest *.py
+        run: pytest tests/*
