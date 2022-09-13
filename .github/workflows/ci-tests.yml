@@ -35,7 +35,7 @@ jobs:
         run: 7z x tests/data_for_test/acdc_for_test.7z
 
       - name: Run unit tests
-        working-directory: tests
+        uses: actions/setup-python@v3
         run: |
           pwd
-          pytest /*.py
+          pytest tests/*.py
