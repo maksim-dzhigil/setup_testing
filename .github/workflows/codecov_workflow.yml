@@ -4,7 +4,7 @@ on:
   pull_request:
 
 jobs:
-  run:
+  test:
 
     runs-on: ${{ matrix.os }}
     strategy:
@@ -13,6 +13,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@master
+      - name: codecov config
       - uses: codecov/codecov-action@v3
         run: |
           curl -Os https://uploader.codecov.io/latest/linux/codecov
