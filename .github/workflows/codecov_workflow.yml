@@ -16,7 +16,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@master
-      - uses: codecov/codecov-action@v3
+      - name: Codecov config
+        uses: codecov/codecov-action@v3
         with:
           files: ./ci-tests.yml # optional
           flags: unittests # optional
