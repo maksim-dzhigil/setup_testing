@@ -4,7 +4,7 @@ on:
   pull_request:
 
 jobs:
-  test:
+  codecov:
 
     strategy:
       matrix:
@@ -33,17 +33,9 @@ jobs:
       - name: Run unit tests
         run: pytest tests/*.py
 
-#      - name: Codecov uploader
-#        run: |
-#          curl -Os https://uploader.codecov.io/latest/linux/codecov
-#          chmod +x codecov
-#          ./codecov
-
-      - name: Upload code coverage to codecov
-        uses: codecov/codecov-action@v3
-
-      - name: Codecov uploader
-        run: |
-          curl -Os https://uploader.codecov.io/latest/linux/codecov
-          chmod +x codecov
-          ./codecov -t ${CODECOV_TOKEN}
+     - name: Upload coverage to Codecov
+       uses: codecov/codecov-action@v1
+       with:
+         token: ${{ secrets.CODECOV_TOKEN }}
+         file: ./coverage.xml
+         flags: unittests
