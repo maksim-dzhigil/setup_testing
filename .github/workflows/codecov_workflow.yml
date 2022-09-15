@@ -15,7 +15,6 @@ jobs:
       - uses: actions/checkout@master
       - uses: codecov/codecov-action@v3
         with:
-          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
           files: ./ci-tests.yml # optional
           flags: unittests # optional
           name: codecov-umbrella # optional
