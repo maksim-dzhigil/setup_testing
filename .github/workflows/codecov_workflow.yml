@@ -13,11 +13,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@master
-      - name: codecov config
+      - name: Codecov prepare
       - uses: codecov/codecov-action@v3
         run: |
           curl -Os https://uploader.codecov.io/latest/linux/codecov
           chmod +x codecov
           ./codecov
+
+      - name: Codecov config
         with:
           files: ./ci-tests.yml
