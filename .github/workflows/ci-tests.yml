@@ -18,21 +18,25 @@ jobs:
         with:
           python-version: 3.9
 
-      - name: Install pytest
-        run: pip install pytest
-
-      - name: Test requirements installation
-        run: python setup.py install
-
-      - name: Prepare test data
-        run: 7z x tests/data_for_test/acdc_for_test.7z
-
-      - name: Run unit tests
-        run: pytest tests/*.py
+#      - name: Install pytest
+#        run: pip install pytest
+#
+#      - name: Test requirements installation
+#        run: python setup.py install
+#
+#      - name: Prepare test data
+#        run: 7z x tests/data_for_test/acdc_for_test.7z
+#
+#      - name: Run unit tests
+#        run: pytest tests/*.py
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
+      - uses: actions/checkout@master
+      - uses: codecov/codecov-action@v3
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./coverage.xml
-          flags: unittests
+          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          files: ./ci-tests.xml # optional
+          flags: unittests # optional
+          name: codecov-umbrella # optional
+          fail_ci_if_error: true # optional (default = false)
+          verbose: true #
