@@ -12,9 +12,9 @@ jobs:
         os: [ ubuntu-latest ]
 
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
       - name: Set up Python 3.9
-        uses: actions/setup-python@master
+        uses: actions/setup-python@v2
         with:
           python-version: 3.9
 
