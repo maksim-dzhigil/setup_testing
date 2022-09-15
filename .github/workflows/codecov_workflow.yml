@@ -11,6 +11,9 @@ jobs:
       matrix:
         os: [ ubuntu-latest ]
 
+    env:
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
     steps:
       - uses: actions/checkout@master
       - uses: codecov/codecov-action@v3
