@@ -5,37 +5,61 @@ on:
 
 jobs:
   codecov:
-
-    strategy:
-      matrix:
-        os: [ ubuntu-latest ]
-
-    runs-on: ${{ matrix.os }}
-    env:
-      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+    name: Codecov Workflow
+    runs-on: ubuntu-22.04
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Python 3.9
-        uses: actions/setup-python@v2
+      - uses: actions/checkout@v1
+      - name: Set up Python
+        uses: actions/setup-python@master
         with:
           python-version: 3.9
-
-      - name: Install pytest
-        run: pip install pytest
-
-      - name: Test requirements installation
-        run: python setup.py install
-
-      - name: Prepare test data
-        run: 7z x tests/data_for_test/acdc_for_test.7z
-
-      - name: Run unit tests
-        run: pytest tests/*.py
-
+      - name: Generate coverage report
+        run: |
+          pip install pytest
+          python setup.py install
+          7z x tests/data_for_test/acdc_for_test.7z
+          pytest tests/*.py
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage.xml
           flags: unittests
+
+#jobs:
+#  codecov:
+#
+#    strategy:
+#      matrix:
+#        os: [ ubuntu-latest ]
+#
+#    runs-on: ${{ matrix.os }}
+#    env:
+#      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+#
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: Set up Python 3.9
+#        uses: actions/setup-python@v2
+#        with:
+#          python-version: 3.9
+#
+#      - name: Install pytest
+#        run: pip install pytest
+#
+#      - name: Test requirements installation
+#        run: python setup.py install
+#
+#      - name: Prepare test data
+#        run: 7z x tests/data_for_test/acdc_for_test.7z
+#
+#      - name: Run unit tests
+#        run: pytest tests/*.py
+#
+#      - name: Upload coverage to Codecov
+#        uses: codecov/codecov-action@v1
+#        with:
+#          token: ${{ secrets.CODECOV_TOKEN }}
+#          file: ./coverage.xml
+#          flags: unittests
