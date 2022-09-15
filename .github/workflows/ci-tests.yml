@@ -18,17 +18,17 @@ jobs:
         with:
           python-version: 3.9
 
-#      - name: Install pytest
-#        run: pip install pytest
-#
-#      - name: Test requirements installation
-#        run: python setup.py install
-#
-#      - name: Prepare test data
-#        run: 7z x tests/data_for_test/acdc_for_test.7z
-#
-#      - name: Run unit tests
-#        run: pytest tests/*.py
+      - name: Install pytest
+        run: pip install pytest
+
+      - name: Test requirements installation
+        run: python setup.py install
+
+      - name: Prepare test data
+        run: 7z x tests/data_for_test/acdc_for_test.7z
+
+      - name: Run unit tests
+        run: pytest tests/*.py
 
       - name: Upload coverage to Codecov
       - uses: actions/checkout@master
