@@ -20,3 +20,4 @@ jobs:
           ./codecov
         with:
           token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          files: ./ci-tests.yml
