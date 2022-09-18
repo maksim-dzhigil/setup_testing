@@ -2,6 +2,8 @@ name: ci-tests
 
 on:
   pull_request:
+    branches:
+      - "main"
 
 jobs:
   codecov:
