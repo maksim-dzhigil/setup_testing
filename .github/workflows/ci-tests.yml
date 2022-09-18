@@ -5,8 +5,7 @@ on:
     branches:
       - "test"
   pull_request:
-    branches:
-      - "main"
+
 
 jobs:
   codecov:
