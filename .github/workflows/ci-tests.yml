@@ -1,14 +1,23 @@
 name: ci-tests
 
 on:
+  push:
+    branches:
+      - "test"
   pull_request:
     branches:
       - "main"
 
 jobs:
   codecov:
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+
     name: Codecov Workflow
-    runs-on: ubuntu-22.04
+    runs-on: ${{ matrix.os }}
+    env:
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
     steps:
       - uses: actions/checkout@v1
