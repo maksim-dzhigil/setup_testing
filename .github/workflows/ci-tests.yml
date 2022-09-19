@@ -36,6 +36,7 @@ jobs:
         run: |
           pip install black
           black --target-version=py39 .
+          pwd
 
       - name: Generate coverage report
         run: |
@@ -43,7 +44,7 @@ jobs:
           pip install pytest
           pip install pytest-cov
           7z x tests/data_for_test/acdc_for_test.7z
-          cd setup_testing
+          pwd
           pytest --cov=tests/ --cov-report=xml
 
       - name: Upload coverage to Codecov
