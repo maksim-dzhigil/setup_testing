@@ -43,7 +43,7 @@ jobs:
           pip install pytest
           pip install pytest-cov
           7z x tests/data_for_test/acdc_for_test.7z
-          coverage run -m pytest --cov=tests --cov-report=xml
+          coverage run -m pytest --cov=tests/ --cov-report=xml
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
