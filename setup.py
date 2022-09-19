@@ -1,7 +1,8 @@
 # from distutils.core import setup
-from setuptools import setup
 import io
 import os
+from setuptools import setup
+
 
 def read(*names, **kwargs):
     with io.open(
