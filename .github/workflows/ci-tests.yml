@@ -38,6 +38,7 @@ jobs:
           pip install -r requirements.txt
           pip install pytest
           pip install pytest-cov
+          7z x tests/data_for_test/acdc_for_test.7z
           pytest tests/*.py
           pytest --cov=tests/ --cov-report=xml
 
