@@ -30,17 +30,17 @@ jobs:
 
       - name: Generate coverage report
         run: |
+          pip install -r requirements.txt
+          pip install -e .
           pip install pytest
+          pip install networkx
           pip install pytest-cov
-          python setup.py install
-          7z x tests/data_for_test/acdc_for_test.7z
           pytest --cov=./ --cov-report=xml
 
       - name: Code style checking
         run: |
           pip install black
           black --target-version=py39 .
-
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
