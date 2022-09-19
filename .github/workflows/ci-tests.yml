@@ -38,7 +38,8 @@ jobs:
           pip install -r requirements.txt
           pip install pytest
           pip install pytest-cov
-          pytest --cov=setup_testing tests/ --cov-report=xml
+          pytest --cov=tests/ --cov-report=xml
+          pytest tests/*.py
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
