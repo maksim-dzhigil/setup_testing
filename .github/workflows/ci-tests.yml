@@ -31,6 +31,7 @@ jobs:
       - name: Generate coverage report
         run: |
           pip install pytest
+          pip install pytest-cov
           python setup.py install
           7z x tests/data_for_test/acdc_for_test.7z
           pytest --cov=./ --cov-report=xml
