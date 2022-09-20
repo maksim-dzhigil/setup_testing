@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ ubuntu-latest, macos-latest, windows-latest ]
+        os: [ windows-latest ]
 
     name: Codecov Workflow
     runs-on: ${{ matrix.os }}
@@ -25,10 +25,10 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Code style checking
+      - name: Code style fixing
         run: |
           pip install black
-          black --check --target-version=py310 .
+          black --target-version=py310 .
 
       - name: Generate coverage report
         run: |
