@@ -4,7 +4,7 @@ coverage:
   precision: 2    # Number of decimal places, between 0 and 5
 
 fixes:
-  - "/home/runner/work/project/project/::"
+  - "/home/runner/work/setup_testing/code/::"
 
 ignore:
   - "setup.py"

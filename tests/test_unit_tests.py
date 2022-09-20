@@ -1,7 +1,7 @@
 import unittest
 
-from project.utils.utils import *
-from project.program import *
+from code.utils.utils import *
+from code.program import *
 
 
 class MyTestCase(unittest.TestCase):
