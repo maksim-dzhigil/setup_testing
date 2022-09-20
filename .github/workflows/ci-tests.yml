@@ -23,8 +23,6 @@ jobs:
       - name: Generate coverage report
         run: |
           pip install -r requirements.txt
-          pip install pytest
-          pip install networkx
           pip install pytest-cov
           pytest --cov-config=.coveragerc
                  --cov=setup_testing
