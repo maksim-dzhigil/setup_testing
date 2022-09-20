@@ -1,6 +1,7 @@
 import unittest
 
 from project.utils.utils import *
+from project.program import *
 
 
 class MyTestCase(unittest.TestCase):
@@ -15,3 +16,8 @@ class MyTestCase(unittest.TestCase):
         a = 5
         b = 50
         self.assertEqual(sum_(a, b), a + b)
+
+    def test_make_string_func(self):
+        str1 = "ffff"
+        str2 = "dgdfg"
+        self.assertEqual(make_string(str1, str2), str1 + str2)
