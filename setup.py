@@ -21,7 +21,7 @@ requirements = find_requirements("requirements.txt")
 
 setup(
     name="testprojlib",
-    packages=['code', 'code.utils'],
+    packages=['code_dir', 'code_dir.utils'],
     url='https://github.com/maksim-dzhigil/setup_testing',
     install_requires=requirements
 )
