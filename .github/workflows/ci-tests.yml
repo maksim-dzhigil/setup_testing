@@ -30,12 +30,20 @@ jobs:
           pip install black
           black --target-version=py310 .
 
+      - name: Test requirements installation
+        run: python setup.py install
+
       - name: Generate coverage report
         run: |
           python setup.py install
           pip install pytest
           pip install pytest-cov
           pytest --cov=./ --cov-report=xml
+
+      - name: Run unit tests
+        run: |
+          7z x tests/acdc_for_test.7z
+          pytest tests/*.py
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
