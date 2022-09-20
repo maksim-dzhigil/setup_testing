@@ -1,4 +1,4 @@
-jax==0.3.17
+jax==0.3.15
 jaxlib==0.3.15
 anytree==2.8.0
 colorama==0.4.5
