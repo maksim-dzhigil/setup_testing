@@ -31,8 +31,7 @@ jobs:
           black --target-version=py310 .
 
       - name: Test requirements installation
-#        run: python setup.py install
-        run: pip install -r requirements.txt
+        run: python setup.py install
 
       - name: Generate coverage report
         run: |
