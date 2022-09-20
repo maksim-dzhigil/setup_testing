@@ -1,6 +1,7 @@
 import unittest
 import os
 
+
 class MyTestCase(unittest.TestCase):
 
     def test_something(self):
@@ -10,5 +11,5 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(True, True)
 
     def test_unpacking_at_ai_ad(self):
-        self.name_list = os.listdir('./acdc_for_test')
+        self.name_list = os.listdir('./data_for_test')
         self.assertIsNotNone(self.name_list)
