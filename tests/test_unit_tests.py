@@ -1,7 +1,7 @@
 import unittest
 
-from code.utils.utils import *
-from code.program import *
+from code_dir.utils.addition import *
+from code_dir.string_concat import *
 
 
 class MyTestCase(unittest.TestCase):
