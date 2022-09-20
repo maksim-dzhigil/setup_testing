@@ -8,8 +8,5 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(True, True)
 
     def test_another_something(self):
-        self.assertEqual(True, True)
+        self.assertEqual(5, 5)
 
-    def test_unpacking_at_ai_ad(self):
-        self.name_list = os.listdir('./data_for_test')
-        self.assertIsNotNone(self.name_list)
