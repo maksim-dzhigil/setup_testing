@@ -10,3 +10,4 @@ scikit_learn
 scikit-image
 vtk
 tqdm
+setuptools
