@@ -28,4 +28,4 @@ jobs:
       - name: Generate docs coverage report
         run: |
           pip install docstr-coverage
-          docstr-coverage ./ -b ./badge.svg
+          docstr-coverage ./ -b ./badge.svg -p
