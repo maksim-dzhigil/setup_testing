@@ -7,7 +7,6 @@ on:
 
 jobs:
   codecov:
-
     strategy:
       matrix:
         os: [ ubuntu-latest ]
@@ -25,7 +24,7 @@ jobs:
 
       - name: Caching
         uses: actions/cache@master
-        id: cache
+        id: cache-modules
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
@@ -33,7 +32,7 @@ jobs:
             ${{ runner.os }}-pip-
 
       - name: Install reqs
-        if: steps.cache.outputs.cache-hit != 'true'
+        if: steps.cache-modules.outputs.cache-hit != 'true'
         run: |
           python setup.py install
 
