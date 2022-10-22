@@ -16,13 +16,13 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@master
       - name: Setup python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@master
         with:
           python-version: '3.8'
           cache: 'pip'
-      - uses: actions/cache@v1
+      - uses: actions/cache@master
         id: cache
         with:
           path: ~/.cache/pip
