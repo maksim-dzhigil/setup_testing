@@ -1,6 +1,6 @@
 import unittest
+import haiku as hk
 import jax
-
 import jax.numpy as jnp
 
 from code_dir.utils.addition import *
