@@ -22,19 +22,22 @@ jobs:
         with:
           python-version: '3.8'
           cache: 'pip'
-      - uses: actions/cache@master
+
+      - name: Caching
+        uses: actions/cache@master
         id: cache
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
-      - name: Install
+
+      - name: Install reqs
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
           pip install -r requirements.txt
 
-      - name: Tests
+      - name: Running tests
         run: |
           pip install pytest pytest-cov
           pytest --cov=./ --cov-report=xml
