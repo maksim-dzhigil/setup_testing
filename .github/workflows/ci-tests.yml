@@ -17,18 +17,25 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - name: Setup python
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
-          cache: 'pipenv'
-      - name: Install pipenv
-        run: curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
-      - run: pipenv install
-      
-      - name: Prepare patient data
-        run: 7z x tests/acdc_for_test.7z
+          python-version: '3.8'
+          cache: 'pip' 
+      - uses: actions/cache@v1
+        id: cache
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+      - name: Install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          pip install pytest pytest-cov bandit sphinx recommonmark
+          python -m pip install --upgrade pip
+          pip install .
 
-      - run: |
-          pip install pytest
-          pip install pytest-cov
-          pytest --cov=./ --cov-report=xml
+
+
+
