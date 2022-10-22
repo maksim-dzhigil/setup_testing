@@ -1,6 +1,7 @@
 import unittest
-import haiku as hk
+import colorama
 import jax
+
 import jax.numpy as jnp
 
 from code_dir.utils.addition import *
