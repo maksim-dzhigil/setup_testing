@@ -35,7 +35,7 @@ jobs:
       - name: Install reqs
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
-          pip install -r requirements.txt
+          python setup.py install
 
       - name: Running tests
         run: |
