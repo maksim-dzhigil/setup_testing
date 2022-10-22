@@ -32,9 +32,18 @@ jobs:
       - name: Install
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
-          pip install pytest pytest-cov bandit sphinx recommonmark
-          python -m pip install --upgrade pip
-          pip install .
+          pip install -r requirements.txt
+          pip install pytest pytest-cov
+
+      - name: Tests
+        run: pytest --cov=./ --cov-report=xml
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./coverage.xml
+          flags: unittests
 
 
 
