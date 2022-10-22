@@ -1,5 +1,4 @@
 import unittest
-import colorama
 import jax
 
 import jax.numpy as jnp
