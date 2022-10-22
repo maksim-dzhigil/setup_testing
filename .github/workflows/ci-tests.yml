@@ -15,23 +15,25 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-      - uses: actions/checkout@master
-      - name: Setup python
-        uses: actions/setup-python@master
+      - uses: actions/checkout@v3
+
+      - id: setup_python
+        uses: actions/setup-python@v3
         with:
           python-version: '3.10'
-          cache: 'pip'
-      - uses: actions/cache@master
-        id: cache-modules
+
+      - id: cache-modules
+        uses: actions/cache@v3
         with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          path: venv
+          key: pip-${{ steps.setup_python.outputs.python-version }}-${{ hashFiles('requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
       - name: Install reqs
         if: steps.cache-modules.outputs.cache-hit != 'true'
         run: |
+          python -m venv venv
           python setup.py install
 
       - name: Running tests
