@@ -34,7 +34,7 @@ jobs:
         if: steps.cache-modules.outputs.cache-hit != 'true'
         run: |
           python -m venv venv
-          python setup.py install
+          venv/bin/python setup.py install
 
       - name: Running tests
         run: |
