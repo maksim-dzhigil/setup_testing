@@ -13,4 +13,4 @@ def testing_precommit_workability():
 def some_func():
     """Some documentatoin for testing docstr-coverage"""
 
-    return 0
+    return 1
