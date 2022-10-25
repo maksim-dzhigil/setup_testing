@@ -1,6 +1,7 @@
 # from distutils.core import setup
 import io
 import os
+
 from setuptools import setup
 
 
@@ -21,7 +22,7 @@ requirements = find_requirements("requirements.txt")
 
 setup(
     name="testprojlib",
-    packages=['code_dir', 'code_dir.utils'],
-    url='https://github.com/maksim-dzhigil/setup_testing',
-    install_requires=requirements
+    packages=["code_dir", "code_dir.utils"],
+    url="https://github.com/maksim-dzhigil/setup_testing",
+    install_requires=requirements,
 )
