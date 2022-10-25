@@ -4,3 +4,15 @@ repos:
     rev: 22.3.0
     hooks:
       - id: black
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.10.1
+    hooks:
+      - id: isort
+        args: ["--profile", "black"]
+
+  - repo: https://github.com/HunterMcGushion/docstr_coverage
+    rev: v2.2.0
+    hooks:
+      - id: docstr-coverage
+        args: ["code_dir", "-v", "0", "-F", "0", "-p", "-b", "./badge.svg"]

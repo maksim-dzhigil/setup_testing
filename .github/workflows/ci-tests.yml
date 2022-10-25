@@ -50,22 +50,6 @@ jobs:
           file: ./coverage.xml
           flags: unittests
 
-      - name: Generate docs coverage report
-        id: docstr-cov
-        run: |
-          pip install docstr-coverage
-          docstr-coverage ./ -b ./badge.svg -F 0
-
-      - name: Create docstr-cov Badge
-        uses: schneegans/dynamic-badges-action@v1.6.0
-        with:
-          auth: ${{ secrets.GIST_SECRET }}
-          gistID: 795da6a637bad59359139e00277c97a3
-          filename: test.json
-          label: Hello
-          message: World
-          color: orange
-
 
 
 
