@@ -1,14 +1,10 @@
 import unittest
-import haiku as hk
-import jax
-import jax.numpy as jnp
 
-from code_dir.utils.addition import *
 from code_dir.string_concat import *
+from code_dir.utils.addition import *
 
 
 class MyTestCase(unittest.TestCase):
-
     def test_something(self):
         self.assertEqual(True, True)
 
