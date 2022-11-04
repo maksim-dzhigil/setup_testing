@@ -9,7 +9,7 @@ jobs:
   ci:
     strategy:
       matrix:
-        os: [ ubuntu-latest ]
+        os: [ ubuntu-latest, macos-latest ]
         py-version: [3.8, 3.9]
 
     name: Codecov Workflow
@@ -45,7 +45,7 @@ jobs:
           pytest --cov=./ --cov-report=xml
 
       - name: Upload coverage to Codecov
-        if: ${{ matrix.os }} == ubuntu-latest
+        if: ${{ matrix.os }} == ubuntu-latest && steps.setup_python.python-version == 3.8
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
