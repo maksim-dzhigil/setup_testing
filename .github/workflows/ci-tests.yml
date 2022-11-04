@@ -29,13 +29,7 @@ jobs:
           python -m pip install --upgrade pip wheel
           echo "::set-output name=dir::$(pip cache dir)"
 
-      - name: pip cache
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.pip-cache.outputs.dir }}
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/setup.py', '**/requirements.txt' }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
+      
 
 
 
