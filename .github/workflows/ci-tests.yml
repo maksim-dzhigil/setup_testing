@@ -6,11 +6,11 @@ on:
       - "main"
 
 jobs:
-  lint_and_typecheck:
+  ci:
     strategy:
         matrix:
-          python-version: 3.8
-          os: ubuntu-latest
+          python-version: [3.8]
+          os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
