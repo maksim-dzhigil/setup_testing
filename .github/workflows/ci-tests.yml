@@ -9,12 +9,15 @@ jobs:
   ci:
     strategy:
         matrix:
-          python-version: [3.8]
           os: [ubuntu-latest]
+          python-version: [3.8]
+
     runs-on: ${{ matrix.os }}
+
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python ${{ matrix.python-version }}
+
+      - name: Set up Python 3.8
         id: setup_python
         uses: actions/setup-python@v4
         with:
@@ -30,7 +33,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ steps.pip-cache.outputs.dir }}
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/setup.py', '**/requirements.txt') }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/setup.py', '**/requirements.txt' }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
