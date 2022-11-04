@@ -7,7 +7,10 @@ on:
 
 jobs:
   lint_and_typecheck:
-    runs-on: ubuntu-latest
+    strategy:
+        matrix:
+          python-version: [3.8]
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Cancel previous
         uses: styfle/cancel-workflow-action@0.11.0
@@ -20,12 +23,6 @@ jobs:
         with:
           python-version: 3.8
       - uses: pre-commit/action@v3.0.0
-  build:
-    strategy:
-      matrix:
-        python-version: [3.8]
-    runs-on: ${{ matrix.os }}
-    steps:
       - name: Cancel previous
         uses: styfle/cancel-workflow-action@0.11.0
         with:
