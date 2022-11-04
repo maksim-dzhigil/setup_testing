@@ -45,7 +45,7 @@ jobs:
           pytest --cov=./ --cov-report=xml
 
       - name: Upload coverage to Codecov
-        if: runs-on == ubuntu-latest
+        if: ci.runs-on == ubuntu-latest
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
