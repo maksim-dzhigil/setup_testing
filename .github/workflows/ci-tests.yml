@@ -8,7 +8,6 @@ on:
 jobs:
   lint_and_typecheck:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
     steps:
       - name: Cancel previous
         uses: styfle/cancel-workflow-action@0.11.0
@@ -23,6 +22,7 @@ jobs:
       - uses: pre-commit/action@v3.0.0
   build:
     strategy:
+      matrix:
         python-version: [3.8]
     runs-on: ${{ matrix.os }}
     steps:
@@ -47,7 +47,7 @@ jobs:
           path: ${{ steps.pip-cache.outputs.dir }}
           key: ${{ runner.os }}-pip-${{ hashFiles('**/setup.py', '**/requirements.txt', '**/test-requirements.txt') }}
           restore-keys: |
-            ${{ runner.os }}-pip-  
+            ${{ runner.os }}-pip-
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
