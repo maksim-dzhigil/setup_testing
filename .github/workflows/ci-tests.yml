@@ -20,6 +20,12 @@ jobs:
       tmp: 
 
     steps:
+      - name: Cancel previous
+        uses: styfle/cancel-workflow-action@0.11.0
+        with:
+          access_token: ${{ github.token }}
+        if: ${{github.ref != 'refs/head/main'}}
+
       - uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version }}
         id: setup_python
@@ -27,12 +33,6 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - uses: pre-commit/action@v3.0.0
-
-      - name: Get pip cache dir
-        id: pip-cache
-        run: |
-          python -m pip install --upgrade pip wheel  # TODO how does it work
-          echo "::set-output name=dir::$(pip cache dir)"
 
       - name: pip cache
         uses: actions/cache@v3
@@ -54,7 +54,7 @@ jobs:
           pytest --cov=./ --cov-report=xml
 
       - name: Os and python version
-        if: runner.os == 'Ubuntu Linux'
+        if: runner.os == 'Ubuntu'
         run: |
           echo "os: $OS, py-ver: $py"
 
