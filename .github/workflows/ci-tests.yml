@@ -24,7 +24,6 @@ jobs:
         uses: styfle/cancel-workflow-action@0.11.0
         with:
           access_token: ${{ github.token }}
-        if: ${{github.ref != 'refs/head/main'}}
 
       - uses: actions/checkout@v3
       - name: Set up Python ${{ matrix.python-version }}
@@ -40,7 +39,8 @@ jobs:
           python -m pip install --upgrade pip wheel
           echo "::set-output name=dir::$(pip cache dir)"
 
-      - name: pip cache
+      - name: Get pip cache
+        id: cached-modules
         uses: actions/cache@v3
         with:
           path: ${{ steps.pip-cache.outputs.dir }}
@@ -49,7 +49,7 @@ jobs:
             ${{ runner.os }}-pip-
 
       - name: Install dependencies
-        if: steps.cache-modules.outputs.cache-hit != 'true'
+        if: steps.cached-modules.outputs.cache-hit != 'true'
         run: |
           pip install -r requirements.txt
           pip install black black[jupyter]
