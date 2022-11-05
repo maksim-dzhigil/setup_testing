@@ -14,11 +14,6 @@ jobs:
 
     runs-on: ${{ matrix.os }}
 
-    env:
-      OS: ${{ matrix.os }}
-      py: ${{ matrix.python-version }}
-      tmp: 
-
     steps:
       - name: Cancel previous
         uses: styfle/cancel-workflow-action@0.11.0
@@ -64,7 +59,7 @@ jobs:
       - name: Os and python version
         if: ${{ steps.setup_python.python-version }} != 3.8.14 
         run: |
-          echo "os: $OS, py-ver: $py"
+          echo "${{ steps.setup_python.python-version }}"
 
       - name: Upload coverage to Codecov
         if:  runner.os == 'Linux' && ${{ matrix.python-version }} == "3.8.14"
