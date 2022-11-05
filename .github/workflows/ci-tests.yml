@@ -59,7 +59,7 @@ jobs:
       - name: Os and python version
         if: ${{ steps.setup_python.python-version }} != 3.8.14 
         run: |
-          echo "${{ steps.setup_python.python-version }}"
+          echo "$steps.setup_python.python-version"
 
       - name: Upload coverage to Codecov
         if:  runner.os == 'Linux' && ${{ matrix.python-version }} == "3.8.14"
