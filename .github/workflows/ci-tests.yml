@@ -57,7 +57,7 @@ jobs:
           echo "os: $OS, py-ver: $py"
 
       - name: Upload coverage to Codecov
-        if: ${{ runner.os }} == ubuntu-latest
+        if: runner.os == ubuntu-latest
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
