@@ -60,7 +60,7 @@ jobs:
           pytest --cov=./ --cov-report=xml
 
       - name: Os and python version
-        if: ${{ env.py == "3.8" }}
+        if: ${{ env.py == 3.8 }}
         run: |
           echo "${{ env.py }} == 3.8"
 
