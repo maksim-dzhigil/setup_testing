@@ -54,7 +54,7 @@ jobs:
           pytest --cov=./ --cov-report=xml
 
       - name: Os and python version
-        if: runner.os == ubuntu-latest
+        if: runner.os == ubuntu
         run: |
           echo "os: $OS, py-ver: $py"
 
