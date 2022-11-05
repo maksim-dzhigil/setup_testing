@@ -17,6 +17,7 @@ jobs:
     env:
       OS: ${{ matrix.os }}
       py: ${{ matrix.python-version }}
+      tmp: 
 
     steps:
       - uses: actions/checkout@v3
@@ -53,11 +54,12 @@ jobs:
           pytest --cov=./ --cov-report=xml
 
       - name: Os and python version
+        if: 
         run: |
           echo "os: $OS, py-ver: $py"
 
       - name: Upload coverage to Codecov
-        if: runner.os == "ubuntu-latest"
+        if:  ${{ RUNNER_OS }} == "ubuntu-latest"
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
