@@ -10,7 +10,7 @@ jobs:
     strategy:
         matrix:
           os: [ubuntu-latest, macos-latest]
-          python-version: ["3.8", "3.9", "3.10"]
+          python-version: ["3.8.14", "3.9.14", "3.10.8"]
 
     runs-on: ${{ matrix.os }}
 
@@ -62,7 +62,7 @@ jobs:
           pytest --cov=./ --cov-report=xml
 
       - name: Os and python version
-        if: runner.os == 'Linux'
+        if: ${{ steps.setup_python.python-version }} == 3.8.14
         run: |
           echo "os: $OS, py-ver: $py"
 
