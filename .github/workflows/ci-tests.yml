@@ -10,7 +10,7 @@ jobs:
     strategy:
         matrix:
           os: [ubuntu-latest, macos-latest]
-          python-version: ["3.8.14", "3.9.14", "3.10.8"]
+          python-version: ["3.8", "3.9", "3.10", "3.11"]
 
     runs-on: ${{ matrix.os }}
 
@@ -51,18 +51,12 @@ jobs:
         if: steps.cached-modules.outputs.cache-hit != 'true'
         run: |
           pip install -r requirements.txt
-          pip install black black[jupyter]
           pip install pytest pytest-cov
 
       - name: Running tests
         run: |
           pip install pytest pytest-cov
           pytest --cov=./ --cov-report=xml
-
-      - name: Os and python version
-        if: ${{ env.py == 3.8 }}
-        run: |
-          echo "${{ env.py }} == 3.8"
 
       - name: Upload coverage to Codecov
         if:  runner.os == 'Linux' && ${{ env.py == 3.8 }}
