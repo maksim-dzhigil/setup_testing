@@ -62,7 +62,7 @@ jobs:
           pytest --cov=./ --cov-report=xml
 
       - name: Os and python version
-        if: ${{ matrix.python-version == 3.8.14 }}
+        if: ${{ steps.setup_python.python-version == 3.8.14 }}
         run: |
           echo "os: $OS, py-ver: $py"
 
