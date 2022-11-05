@@ -54,12 +54,12 @@ jobs:
           pytest --cov=./ --cov-report=xml
 
       - name: Os and python version
-        if: runner.os == ubuntu
+        if: runner.os == "Ubuntu"
         run: |
           echo "os: $OS, py-ver: $py"
 
       - name: Upload coverage to Codecov
-        if:  runner.os == ubuntu-latest
+        if:  runner.os == "Ubuntu"
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
