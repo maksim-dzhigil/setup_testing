@@ -21,11 +21,12 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
+      - uses: pre-commit/action@v3.0.0
 
       - name: Get pip cache dir
         id: pip-cache
         run: |
-          python -m pip install --upgrade pip wheel
+          python -m pip install --upgrade pip wheel  # TODO how does it work
           echo "::set-output name=dir::$(pip cache dir)"
 
       - name: pip cache
@@ -47,8 +48,10 @@ jobs:
           pip install pytest pytest-cov
           pytest --cov=./ --cov-report=xml
 
+  upload_data:
+    runs-on: ubuntu-latest
+    steps:
       - name: Upload coverage to Codecov
-        if: steps.setup_python.python-version == 3.8
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
