@@ -5,6 +5,8 @@ project = "NNDT"
 copyright = ""
 author = "Konstantin Ushenin"  # 'NNDT-team'
 
+master_doc = "index"  #
+
 extensions = [
     "nbsphinx",  # provides a source parser for .ipynb files
     "sphinx.ext.autodoc",  # include docs from docstrings
