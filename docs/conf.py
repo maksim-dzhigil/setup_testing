@@ -118,7 +118,6 @@ extensions = [
     "myst_nb",
     "sphinx_remove_toctrees",
     "sphinx_copybutton",
-    "jax_extensions",
 ]
 
 intersphinx_mapping = {
