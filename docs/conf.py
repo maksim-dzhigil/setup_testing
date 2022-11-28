@@ -28,7 +28,7 @@ autosummary_generate = True
 autodoc_typehints = "none"
 
 templates_path = ["_templates"]
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "_html", "Readme.md"]
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "_html", "Readme.md", "*.rst"]
 
 
 # -- Options for HTML output -------------------------------------------------
