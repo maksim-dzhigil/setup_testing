@@ -10,7 +10,11 @@ Welcome to setup testing's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
+.. toctree::
+   :maxdepth: 2
+   :caprion: are docs available?
+   code_dir
+   code_dir.utils
 
 Indices and tables
 ==================

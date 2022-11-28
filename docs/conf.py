@@ -30,11 +30,11 @@ autosummary_generate = True
 autodoc_typehints = "none"
 
 templates_path = ["_templates"]
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "_html", "Readme.md", "*.rst"]
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "_html", "Readme.md"]
 
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = "sphinx_book_theme"
+html_theme = "classic"  # "sphinx_book_theme"
 html_static_path = ["_static"]
