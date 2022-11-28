@@ -10,6 +10,8 @@ project = "setup testing"
 copyright = "2022, Maksim Dzhigil"
 author = "Maksim Dzhigil"
 
+master_doc = "index"
+
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
